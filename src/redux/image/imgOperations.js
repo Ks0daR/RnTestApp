@@ -8,7 +8,10 @@ import {
 const fetchImages = () => (dispatch) => {
   dispatch(fetchImagesRequest());
 
-  fetch(URI, {headers: HEADERS}).then((data) => console.log(data));
+  fetch(URI, {headers: HEADERS})
+    .then((response) => response.json())
+    .then((data) => dispatch(fetchImagesSuccess(data)))
+    .catch((error) => dispatch(fetchImagesError(data)));
 };
 
 export {fetchImages};

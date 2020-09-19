@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import {useHttp} from '../../hooks/useHttp';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import PhotoListItem from './PhotoListItem';
 import {fetchImages} from '../../redux/image/imgOperations';
 
 const PhotoList = ({toImageScreen}) => {
-  const [photos, setPhotos] = useState(null);
+  // const [photos, setPhotos] = useState(null);
 
-  const {request} = useHttp();
+  // const {request} = useHttp();
+
+  const photos = useSelector(state => state.image.images)
 
   const dispatch = useDispatch();
 
