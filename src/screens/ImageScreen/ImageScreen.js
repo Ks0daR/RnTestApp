@@ -1,12 +1,19 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {ScrollView, Image, StyleSheet} from 'react-native';
 
-const ImageScreen = () => {
+const ImageScreen = ({ navigation}) => {
+  const links = navigation.getParam('url');
+
   return (
-    <View>
-      <Text>ImageScreen</Text>
-    </View>
+    <ScrollView horizontal={true} style={styles.fullImgContainer}>
+      <Image style={styles.fullImg} source={{uri: links.full}} />
+    </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  fullImgContainer: {flex: 1, },
+  fullImg: {width: 700, },
+});
 
 export default ImageScreen;

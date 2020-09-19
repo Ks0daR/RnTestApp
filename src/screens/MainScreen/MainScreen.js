@@ -3,8 +3,8 @@ import {View} from 'react-native';
 import PhotoList from '../../components/PhotoList';
 
 const MainScreen = ({navigation}) => {
-  const goToImageScreen = () => {
-    navigation.navigate('Image');
+  const goToImageScreen = (target, params) => {
+    navigation.navigate(target, params);
   };
 
   return (

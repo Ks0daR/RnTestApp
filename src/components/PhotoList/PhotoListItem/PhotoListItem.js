@@ -3,7 +3,11 @@ import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 const PhotoListItem = ({url, name, toImageScreen}) => {
   return (
-    <TouchableOpacity activeOpacity={0.5} onPress={toImageScreen}>
+    <TouchableOpacity
+      activeOpacity={0.5}
+      onPress={() => {
+        toImageScreen('Image', {url});
+      }}>
       <View style={styles.cardImg}>
         <Image style={styles.miniImg} source={{uri: url.small}} />
         <Text style={styles.cardText}>{name}</Text>
